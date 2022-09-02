@@ -1,0 +1,90 @@
+#predict-result-block {
+  width: 70%;
+  height: 400px;
+  margin-left: 15%;
+  margin-top: 5%;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 3%;
+}
+#predict-h1-title {
+  color: gold !important;
+  float: left;
+  margin-top: 10%;
+  margin-left: 2%;
+}
+#predicted-image {
+  border-radius: 15% !important;
+  margin-top: -15%;
+  margin-left: 25%;
+  width: 300px;
+  height: 300px;
+}
+div.clearfix {
+  clear: both;
+}
+#predict-h1-probability {
+  float: left;
+  color: gold;
+  margin-left: 8%;
+}
+#predicted-name,
+#predicted-probability {
+  color: #5f6f92;
+  font-weight: bold;
+}
+#add-new-employee {
+  float: right;
+  cursor: pointer;
+}
+#registeration-title {
+  margin-left: 23% !important;
+  color: gold !important;
+  margin-top: -4% !important;
+}
+.record-video-block{
+  border: 1px solid black;
+  width: 70%;
+  margin-left: 13%;
+}
+.registeration-container {
+  margin-top: 5em;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 70%;
+  padding: 5%;
+  overflow: auto;
+  border-radius: 5%;
+}
+.panel {
+  border-radius: 5%;
+}
+.panel-title {
+  font-size: 2em;
+}
+.controls{
+  margin-top: -3%;
+}
+.add-new-container {
+  text-align: center;
+  margin-top: 5%;
+  background-color: gray;
+  width: 70%;
+  margin-left: 15%;
+  height: 45em;
+  padding: 2% 5%;
+}
+.row-item {
+  margin-left: 20%;
+}
+.video-record{
+  border: 1px solid black;
+  width: 60%;
+  margin-left: 20%;
+}
+input[type="text"]{
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+#video{
+  border-radius: 5%;
+}

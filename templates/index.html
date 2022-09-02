@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Artificial Intelligence Project</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Bootsrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- icons link from bootstrap and boxicons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Template Main CSS File -->
+    <link
+      href="{{ url_for('static',filename='style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-transparent">
+      <div class="container d-flex align-items-center justify-content-between">
+        <h1 class="logo"><a href="/">IDENTITY Detection System</a></h1>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto active" href="/">Home</a></li>
+            <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li><a class="nav-link scrollto" href="#register">Register</a></li>
+            <li><a class="nav-link scrollto" href="#predict">Predict</a></li>
+            <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+        <!-- .navbar -->
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+      <div class="container position-relative">
+        <h1>Welcome to my Artificial Intelligence Project</h1>
+        <h2>
+          This project is based on automated system, which detects the details of persons.
+        </h2>
+        <a href="#about" class="btn-get-started scrollto">Get Started</a>
+      </div>
+    </section>
+    <!-- End Hero -->
+
+    <main id="main">
+      <!-- ======= About Section ======= -->
+      <section id="about" class="about">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <img
+                src="{{ url_for('static',filename='mypic.png') }}"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <br />
+            <div class="col-lg-6 pt-4 pt-lg-0">
+              <br />
+              <h3>Abdul Manaf</h3>
+              <br />
+              <p>
+                I am Abdul Manaf. I am studying in computer science at Sukkur
+                IBA University. I have 3+ years experience in computer science
+                fields. previously I have worked on many projects so in this 6th
+                semester we are studying Artificial intelligence course so the
+                project of that course is in this website. furthermore, you can
+                visit this website for to see my project.
+              </p>
+              <div class="row">
+                <div class="col-md-6">
+                  <i class="bx bx-receipt"></i>
+                  <h4>Eduction</h4>
+                  <p>
+                    <ul>
+                      <li>Bachelor of Computer Science</li>
+                      <li>Intermediate in Pre-Engineering</li>
+                      <li>Matric in Science</li>
+                    </ul>
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <i class="bx bx-cube-alt"></i>
+                  <h4>Skills</h4>
+                  <p>
+                    <ul>
+                      <li>Java with OOP concepts</li>
+                      <li>Data Structures and algorithms</li>
+                      <li>Machine learning algorithms</li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End About Section -->
+
+      <!-- ======= register Section ======= -->
+      <section id="register" class="register">
+        <div class="container">
+          <div class="section-title">
+            <h2>register</h2>
+            <p>By clicking the below button you can add a new person data and see the list of registered persons.</p>
+          </div>
+          <div class="btn" id="register-btn">
+            <a href="/register" class="btn bg-warning">Get Started</a>
+          </div>
+        </div>
+      </section>
+      <!-- End register Section -->
+
+      <!-- ======= predict Section ======= -->
+      <section id="predict" class="predict">
+        <div class="container">
+          <div class="section-title">
+            <h2>predict</h2>
+            <p>by submitting here any picture of any person, if that person registered this system estimate to predict it otherwise it will show the more similar one.</p>
+          </div>
+
+          <form
+            action="/predict"
+            method="post"
+            enctype="multipart/form-data"
+            id="predict-form"
+          >
+            <input
+              class="form-control"
+              type="file"
+              name="image"
+              id="prediction-image"
+              accept=".png, .jpg, .jpeg"
+              style="width: 50%; margin-left: 25%"
+            />
+            <div
+              class="progress"
+              hidden="true"
+              id="predict-progress"
+              style="background-color: lightblue"
+            >
+              <div
+                class="progress-bar progress-bar-striped bg-success"
+                role="progressbar"
+                style="width: 1%"
+                aria-valuenow="15"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                0%
+              </div>
+            </div>
+            <br />
+            <input
+              type="submit"
+              value="Predict"
+              class="btn btn-warning col-2"
+              id="predict-btn"
+              hidden="true"
+            />
+          </form>
+        </div>
+      </section>
+      <!-- End predict Section -->
+
+      <!-- ======= Frequently Asked Questions Section ======= -->
+      <section id="faq" class="faq section-bg">
+        <div class="container">
+          <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>
+              most frequently asked questions are included in this section it is
+              very helpful for you.
+            </p>
+          </div>
+          <div id="accordion" class="col-8 offset-md-2">
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapse1">
+                  <i class="bi bi-brightness-low-fill">&nbsp;&nbsp;</i>
+                  Can system able to detect my data if I registered in this?
+                  <i class="bi bi-plus-circle" style="float: right"></i>
+                </a>
+              </div>
+              <div id="collapse1" class="collapse" data-parent="#accordion">
+                <div class="card-body">Yes, you can register your details in registeration section and this system will be able to predict your different images.</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapse2">
+                  <i class="bi bi-brightness-low-fill">&nbsp;&nbsp;</i>
+                  Which model you have use?
+                  <i class="bi bi-plus-circle" style="float: right"></i>
+                </a>
+              </div>
+              <div id="collapse2" class="collapse" data-parent="#accordion">
+                <div class="card-body">Convolutional Neural Network (CNN) which recognize facial recognition.</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapse3">
+                  <i class="bi bi-brightness-low-fill">&nbsp;&nbsp;</i>
+                  This system is also able to recognize my childhood pictures?
+                  <i class="bi bi-plus-circle" style="float: right"></i>
+                </a>
+              </div>
+              <div id="collapse3" class="collapse" data-parent="#accordion">
+                <div class="card-body">No, because this system have not enough information of your childhood.</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapse4">
+                  <i class="bi bi-brightness-low-fill">&nbsp;&nbsp;</i>
+                  Where this sytem can be applicable?
+                  <i class="bi bi-plus-circle" style="float: right"></i>
+                </a>
+              </div>
+              <div id="collapse4" class="collapse" data-parent="#accordion">
+                <div class="card-body">There are enormous number of applications where this system can use; like: hospitals to treat patients and searching of persons for investigation or many other applications where we need identity.</div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapse5">
+                  <i class="bi bi-brightness-low-fill">&nbsp;&nbsp;</i>
+                  Which libraries are used to develop this system?
+                  <i class="bi bi-plus-circle" style="float: right"></i>
+                </a>
+              </div>
+              <div id="collapse5" class="collapse" data-parent="#accordion">
+                <div class="card-body">Basically, this is developed in python programming language and for medium use here with Flask. for Model tensorflow, openCV, and Sklearn.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- End Frequently Asked Questions Section -->
+
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-title">
+            <h2>Contact</h2>
+            <p>
+              Below details are given you can contact me anytime and feel free
+              to contact.
+            </p>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="info-box">
+                    <i class="bx bx-map"></i>
+                    <h3>Our Address</h3>
+                    <p>Sukkur IBA University, Sindh, Pakistan 65200.</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box mt-4">
+                    <i class="bx bx-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>
+                      sahitoa97@gmail.com
+                      <br />amanaf.bscsf19@iba-suk.edu.pk
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="info-box mt-4">
+                    <i class="bx bx-phone-call"></i>
+                    <h3>Call Us</h3>
+                    <p>+92 300-3141736</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End Contact Section -->
+    </main>
+    <!-- End #main -->
+
+    <footer>
+      <div class="container d-md-flex py-4">
+        <div class="me-md-auto text-center text-md-start">
+          <div class="copyright">
+            &copy; Copyright <strong><span>SUKKUR IBA University</span></strong
+            >. All Rights Reserved
+          </div>
+        </div>
+        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+          <a href="https://twitter.com/Abdul1Manaf" class="twitter"
+            ><i class="bx bxl-twitter"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100047914385343"
+            class="facebook"
+            ><i class="bx bxl-facebook"></i
+          ></a>
+          <a href="https://www.instagram.com/manafsahito/" class="instagram"
+            ><i class="bx bxl-instagram"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/abdul-manaf-6493a3188/"
+            class="linkedin"
+            ><i class="bx bxl-linkedin"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- JS Links -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.3/font/bootstrap-icons.min.css"
+      integrity="sha512-YzwGgFdO1NQw1CZkPoGyRkEnUTxPSbGWXvGiXrWk8IeSqdyci0dEDYdLLjMxq1zCoU0QBa4kHAFiRhUL3z2bow=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static',filename='main.js') }}"></script>
+  </body>
+</html>
